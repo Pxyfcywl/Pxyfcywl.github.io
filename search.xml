@@ -78,17 +78,6 @@
     
     <entry>
       <title></title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="一点关于自己的这个博客的相关介绍"><a href="#一点关于自己的这个博客的相关介绍" class="headerlink" title="一点关于自己的这个博客的相关介绍"></a>一点关于自己的这个博客的相关介绍</h1><p>好吧, 这实际上是我在爆肝中创建的一个个人博客,由于现在的我水平不足,还不能像很多的前端大佬一样可以制作出很多高特效炫酷的作品,不过在制作博客过 程中我也学到了很多的知识,以后这个博客应该会用来更新我在学习计算机相关知识上的理解和一些扩展性的内容吧。</p><p>(如有问题欢迎交流,QQ1594463152)</p><h2 id="关于计算机"><a href="#关于计算机" class="headerlink" title="关于计算机"></a>关于计算机</h2><p>我会发布一些自己对于算法和数据结构,c++,c#和java的一些知识的理解</p><h2 id="关于hexo博客的制作和butterfly主题"><a href="#关于hexo博客的制作和butterfly主题" class="headerlink" title="关于hexo博客的制作和butterfly主题"></a>关于<code>hexo</code>博客的制作和<code>butterfly</code>主题</h2><p>在我完全理解基于<code>hexo</code>个人博客的制作和<code>butterfly</code>主题的扩展后，我会在这里添加一个制作个人博客的一个系列</p><h2 id="关于数学"><a href="#关于数学" class="headerlink" title="关于数学"></a>关于数学</h2><p>我会发布一些关于自己对于高数的一些理解</p><h2 id="emmm"><a href="#emmm" class="headerlink" title="emmm"></a>emmm</h2><p>争取每天可以更新至少一条博客吧,也算是激励自己成长的一种方式吧。</p>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
       <link href="/manifest.json"/>
       <url>/manifest.json</url>
       
@@ -110,11 +99,11 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title></title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="一点关于自己的这个博客的相关介绍"><a href="#一点关于自己的这个博客的相关介绍" class="headerlink" title="一点关于自己的这个博客的相关介绍"></a>一点关于自己的这个博客的相关介绍</h1><p>好吧, 这实际上是我在爆肝中创建的一个个人博客,由于现在的我水平不足,还不能像很多的前端大佬一样可以制作出很多高特效炫酷的作品,不过在制作博客过 程中我也学到了很多的知识,以后这个博客应该会用来更新我在学习计算机相关知识上的理解和一些扩展性的内容吧。</p><p>(如有问题欢迎交流,QQ1594463152)</p><h2 id="关于计算机"><a href="#关于计算机" class="headerlink" title="关于计算机"></a>关于计算机</h2><p>我会发布一些自己对于算法和数据结构,c++,c#和java的一些知识的理解</p><h2 id="关于hexo博客的制作和butterfly主题"><a href="#关于hexo博客的制作和butterfly主题" class="headerlink" title="关于hexo博客的制作和butterfly主题"></a>关于<code>hexo</code>博客的制作和<code>butterfly</code>主题</h2><p>在我完全理解基于<code>hexo</code>个人博客的制作和<code>butterfly</code>主题的扩展后，我会在这里添加一个制作个人博客的一个系列</p><h2 id="关于数学"><a href="#关于数学" class="headerlink" title="关于数学"></a>关于数学</h2><p>我会发布一些关于自己对于高数的一些理解</p><h2 id="emmm"><a href="#emmm" class="headerlink" title="emmm"></a>emmm</h2><p>争取每天可以更新至少一条博客吧,也算是激励自己成长的一种方式吧。</p>]]></content>
       
     </entry>
     
@@ -143,6 +132,17 @@
     
     
     <entry>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
@@ -154,9 +154,9 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
