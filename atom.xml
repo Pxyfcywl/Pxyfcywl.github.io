@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>浮云世事改, 过月此心明</title>
+  
+  <subtitle>披星戴月走过的路, 最终将会繁花满地。记住, 一个人, 便是千军万马</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-11-19T06:17:19.206Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>彼岸花开</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一个测试博客</title>
+    <link href="http://example.com/posts/undefined.html"/>
+    <id>http://example.com/posts/undefined.html</id>
+    <published>2022-11-19T06:10:25.000Z</published>
+    <updated>2022-11-19T06:17:19.206Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="主要是拿来测试的"><a href="#主要是拿来测试的" class="headerlink" title="主要是拿来测试的"></a>主要是拿来测试的</h1><p><code>hh</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;主要是拿来测试的&quot;&gt;&lt;a href=&quot;#主要是拿来测试的&quot; class=&quot;headerlink&quot; title=&quot;主要是拿来测试的&quot;&gt;&lt;/a&gt;主要是拿来测试的&lt;/h1&gt;&lt;p&gt;&lt;code&gt;hh&lt;/code&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="testing" scheme="http://example.com/tags/testing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>八皇后问题</title>
+    <link href="http://example.com/posts/undefined.html"/>
+    <id>http://example.com/posts/undefined.html</id>
+    <published>2022-11-19T01:59:14.000Z</published>
+    <updated>2022-11-19T08:06:28.751Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="八皇后问题"><a href="#八皇后问题" class="headerlink" title="八皇后问题"></a>八皇后问题</h1><p><code>n−n−</code>皇后问题是指将<code>nn</code> 个皇后放在 <code>n×n``n×n</code> 的国际象棋棋盘上, 使得皇后不能相互攻击到, 即任意两个皇后都不能处于同一行, 同一列或同一斜线上</p><p>这道题目有两种分析情况，我先来分析第一种。</p><h2 id="设变量"><a href="#设变量" class="headerlink" title="设变量"></a>设变量</h2><p><img src="/posts/undefined/image-20221119100554724.png"></p><p>首先，我们要知道皇后在每一行，每一列，每一斜列都不可以遇到一样的皇后，那么我们不妨创立三种变量来表示竖向的，左斜方向的，右斜方向的三个<code>bool</code>数组来分析，同时我们要创立一盘棋，用<code>char</code>变量来表示</p><h2 id="摆棋"><a href="#摆棋" class="headerlink" title="摆棋"></a>摆棋</h2><p>这样我们就可以把变量创建出来了，第二步就是摆上一盘棋</p><p><img src="/posts/undefined/image-20221119100912629.png"></p><h2 id="bfs解法"><a href="#bfs解法" class="headerlink" title="bfs解法"></a><code>bfs</code>解法</h2><p>现在开始我们就可以来分析这道题的<code>dfs</code>问题解法了</p><p>​这种方法是对于每一行进行依次枚举, 看看这一行的哪个格子是否满足情况，符合的话我们就把皇后插进去. </p><p><img src="/posts/undefined/image-20221119101250914.png"></p><p>注意: 上述的<code>n</code>指的是有几行, <code>u</code>指的是第一列(数组上的表示是0),我们假设<code>n</code>是3</p><p>​我们一步步分析, 开始<code>col[0]</code>是<code>ture</code>，代表这一行是没有放皇后的，<code>dg[u+i]</code>和<code>udg[n-u+1]</code>也是一样，都没有插入任何一个数，所以我们把第一个皇后插入<code>g[0][0]</code>,那么对应的<code>col[0]</code>变成<code>true</code>,<code>dg[0]</code>和<code>udg[3]</code>也变成了<code>true</code>,此后进入下一个<code>dfs</code>循环.</p><p>​下一个进来后，<code>u</code>的值变成1了，现在是在第二行, <code>g[1][0]</code>直接排除.第二行的<code>col[1]</code>和<code>dg[2]</code>是可以过的，但是我们想想就知道，<code>g[1][1]</code>是不可以塞皇后的，所以我们不还有最后一层保险吗，我们的<code>udg[3]</code>是<code>true</code>，它不允许我们的皇后插进去，所以<code>u</code>只能最后去走走<code>g[1][2]</code>,终于三个都不挡住它了,我们可以进入下一个<code>dfs</code>了.</p><p>​第三层中,我们的<code>u</code>是2，它先走到<code>g[2][0]</code>上面, <code>col[0]=true,dg[2]=false,udg[1]=false</code>是不能放的，到<code>g[2][1]</code>的时候也是放不了皇后的, <code>g[2][2]</code>一样放不了，这波直接出<code>for</code>循环了，根据<code>dfs</code>的性质，我们如果都不满足会回到上一个<code>dfs</code>中，但是由于我们在回到上一步<code>dfs</code>的时候有一些数值变了，那我们就要恢复原来改变的数值，甚至可能全部推翻。</p><h2 id="找到解"><a href="#找到解" class="headerlink" title="找到解"></a>找到解</h2><p>​最后我们终于找到了一个解,那我们就直接把解输出出来.</p><p><img src="/posts/undefined/image-20221119104726250.png"></p><p><code>return</code>是返回上一个<code>dfs</code>节点上，可能会有多个解法出现</p><p><img src="/posts/undefined/image-20221119104841836.png"></p><p>在3的时候是没有解的, <code>hh</code></p><h2 id="来点音乐吧"><a href="#来点音乐吧" class="headerlink" title="来点音乐吧"></a>来点音乐吧</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="110" src="//music.163.com/outchain/player?type=0&id=2829896389&auto=1&height=90"></iframe>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;八皇后问题&quot;&gt;&lt;a href=&quot;#八皇后问题&quot; class=&quot;headerlink&quot; title=&quot;八皇后问题&quot;&gt;&lt;/a&gt;八皇后问题&lt;/h1&gt;&lt;p&gt;&lt;code&gt;n−n−&lt;/code&gt;皇后问题是指将&lt;code&gt;nn&lt;/code&gt; 个皇后放在 &lt;code&gt;n×n``n</summary>
+      
+    
+    
+    
+    
+    <category term="dfs深度优先搜索" scheme="http://example.com/tags/dfs%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的第一篇博客</title>
+    <link href="http://example.com/posts/d95d7e09.html"/>
+    <id>http://example.com/posts/d95d7e09.html</id>
+    <published>2022-11-18T05:21:48.000Z</published>
+    <updated>2022-11-19T08:34:15.807Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这是我的第一篇<code>hexo</code>博客文章。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;这是我的第一篇&lt;code&gt;hexo&lt;/code&gt;博客文章。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="初篇的一个实验介绍" scheme="http://example.com/tags/%E5%88%9D%E7%AF%87%E7%9A%84%E4%B8%80%E4%B8%AA%E5%AE%9E%E9%AA%8C%E4%BB%8B%E7%BB%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/posts/4a17b156.html"/>
+    <id>http://example.com/posts/4a17b156.html</id>
+    <published>2022-11-18T03:24:27.405Z</published>
+    <updated>2022-11-19T08:34:15.805Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
