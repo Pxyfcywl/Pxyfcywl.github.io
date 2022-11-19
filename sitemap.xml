@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://example.com/manifest.json</loc>
+    <loc>https://pxyfcywl.github.io/manifest.json</loc>
     
     <lastmod>2022-11-19</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/bilibili/index.html</loc>
+    <loc>https://pxyfcywl.github.io/bilibili/index.html</loc>
     
     <lastmod>2022-11-19</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/pictures/index.html</loc>
+    <loc>https://pxyfcywl.github.io/pictures/index.html</loc>
     
     <lastmod>2022-11-19</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/link/index.html</loc>
+    <loc>https://pxyfcywl.github.io/link/index.html</loc>
     
     <lastmod>2022-11-19</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/index.html</loc>
+    <loc>https://pxyfcywl.github.io/categories/index.html</loc>
     
     <lastmod>2022-11-19</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/index.html</loc>
+    <loc>https://pxyfcywl.github.io/tags/index.html</loc>
     
     <lastmod>2022-11-19</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/posts/d95d7e09.html</loc>
+    <loc>https://pxyfcywl.github.io/posts/d95d7e09.html</loc>
     
     <lastmod>2022-11-19</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/posts/4a17b156.html</loc>
+    <loc>https://pxyfcywl.github.io/posts/4a17b156.html</loc>
     
     <lastmod>2022-11-19</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/posts/undefined.html</loc>
+    <loc>https://pxyfcywl.github.io/posts/undefined.html</loc>
     
     <lastmod>2022-11-19</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/posts/undefined.html</loc>
+    <loc>https://pxyfcywl.github.io/posts/undefined.html</loc>
     
     <lastmod>2022-11-19</lastmod>
     
@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/about/index.html</loc>
+    <loc>https://pxyfcywl.github.io/about/index.html</loc>
     
     <lastmod>2022-11-18</lastmod>
     
@@ -102,7 +102,7 @@
   
 
   <url>
-    <loc>http://example.com/</loc>
+    <loc>https://pxyfcywl.github.io/</loc>
     <lastmod>2022-11-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -110,21 +110,21 @@
 
   
   <url>
-    <loc>http://example.com/tags/testing/</loc>
+    <loc>https://pxyfcywl.github.io/tags/dfs%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</loc>
     <lastmod>2022-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/dfs%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</loc>
+    <loc>https://pxyfcywl.github.io/tags/%E5%88%9D%E7%AF%87%E7%9A%84%E4%B8%80%E4%B8%AA%E5%AE%9E%E9%AA%8C%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2022-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/%E5%88%9D%E7%AF%87%E7%9A%84%E4%B8%80%E4%B8%AA%E5%AE%9E%E9%AA%8C%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>https://pxyfcywl.github.io/tags/testing/</loc>
     <lastmod>2022-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
