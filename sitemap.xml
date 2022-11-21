@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pxyfcywl.github.io/posts/4a17b156.html</loc>
+    
+    <lastmod>2022-11-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pxyfcywl.github.io/posts/aaaaaaaa.html</loc>
+    
+    <lastmod>2022-11-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://pxyfcywl.github.io/posts/d95d7e09.html</loc>
+    
+    <lastmod>2022-11-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://pxyfcywl.github.io/bangumis/index.html</loc>
     
     <lastmod>2022-11-21</lastmod>
@@ -41,33 +68,6 @@
     <loc>https://pxyfcywl.github.io/bangumis/index.html</loc>
     
     <lastmod>2022-11-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pxyfcywl.github.io/posts/aaaaaaaa.html</loc>
-    
-    <lastmod>2022-11-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pxyfcywl.github.io/posts/4a17b156.html</loc>
-    
-    <lastmod>2022-11-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://pxyfcywl.github.io/posts/d95d7e09.html</loc>
-    
-    <lastmod>2022-11-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -137,7 +137,7 @@
 
   
   <url>
-    <loc>https://pxyfcywl.github.io/tags/bfs%E5%AE%BD%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</loc>
+    <loc>https://pxyfcywl.github.io/tags/dfs%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</loc>
     <lastmod>2022-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -165,13 +165,20 @@
   </url>
   
   <url>
-    <loc>https://pxyfcywl.github.io/tags/dfs%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</loc>
+    <loc>https://pxyfcywl.github.io/tags/bfs%E5%AE%BD%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</loc>
     <lastmod>2022-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
 
+  
+  <url>
+    <loc>https://pxyfcywl.github.io/categories/%E6%B5%8B%E8%AF%95%E7%9A%84/</loc>
+    <lastmod>2022-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://pxyfcywl.github.io/categories/c-%E7%AE%97%E6%B3%95/</loc>
