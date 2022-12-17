@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>寒假每日五题计划</title>
+      <link href="/posts/aaaaaaao.html"/>
+      <url>/posts/aaaaaaao.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="寒假刷题计划"><a href="#寒假刷题计划" class="headerlink" title="寒假刷题计划"></a>寒假刷题计划</h1><p>计划范围</p><p>从12.17号开始，大约56天，每天去洛谷<code>oj</code>上找5道类似的题(题目难度大概在普及/提高组左右)，争取自己写出来，实在写不出来那只能就看大佬题解了嘤嘤嘤</p><p>注意算法的涉及：算法的涉及只是说可以用这种算法思路，不代表题目一定考这个</p><p>下面是题库</p><h2 id="刷题题库"><a href="#刷题题库" class="headerlink" title="刷题题库"></a>刷题题库</h2><h3 id="12-17-排序算法"><a href="#12-17-排序算法" class="headerlink" title="12.17(排序算法)"></a>12.17(排序算法)</h3><p>1.<code>P5414 [YNOI2019]</code>排序</p><p><a href="https://www.luogu.com.cn/problem/P5414">P5414 [YNOI2019] 排序 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>涉及算法: 冒泡排序法，线性<code>dp</code></p><p>2.<code>P7714 [EZEC-10]</code>排列排序</p><p><a href="https://www.luogu.com.cn/problem/P7714">P7714 「EZEC-10」排列排序 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>涉及算法：双指针</p><p>3.<code>P1908</code> 逆序对</p><p><a href="https://www.luogu.com.cn/problem/P1908">P1908 逆序对 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>涉及算法：归并排序</p><p>4.<code>P1230</code> 智力大冲浪</p><p><a href="https://www.luogu.com.cn/problem/P1230#submit">P1230 智力大冲浪 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>涉及算法：贪心 结构体排序</p><p>5.<code>P1142</code> 轰炸</p><p><a href="https://www.luogu.com.cn/problem/P1142">P1142 轰炸 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>涉及算法：数学 遍历</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 刷题题库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 刷题题库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>单链表的基本操作</title>
+      <link href="/posts/aaaaaaao.html"/>
+      <url>/posts/aaaaaaao.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="链表的基本操作"><a href="#链表的基本操作" class="headerlink" title="链表的基本操作"></a>链表的基本操作</h1><p>​    今天，我们来学习一下链表的基本操作，相关联的操作大致有9种，我们一个一个来讲解，来揭开链表的神秘面纱</p><h2 id="单链表结构体定义"><a href="#单链表结构体定义" class="headerlink" title="单链表结构体定义"></a>单链表结构体定义</h2><p>首先，我们要先定义一个单链表，怎样才可以定义一个单链表呢？</p><p>我们要创建一个结构体，来存储需要的数据还有该数据指向的下一个节点，因为单链表是按照创建<code>malloc</code>动态分配内存给它的,我们也要动态的创建链表</p><p>第一步 创建一个链表数据</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;#include&lt;algorithm&gt;#include&lt;cstdlib&gt;using namespace std;&#x2F;&#x2F;创建一个结构体变量typedef struct Node&#123;    &#x2F;&#x2F;节点的数据域    int data;    &#x2F;&#x2F;节点的指针域    struct Node* next;&#125;Node,*linklist;  &#x2F;&#x2F;linklist是指向结构体Node的指针类型</code></pre><h2 id="构造一个空的单链表"><a href="#构造一个空的单链表" class="headerlink" title="构造一个空的单链表"></a>构造一个空的单链表</h2><p>现在，我们已经把一个单链表给创建出来了，那么我们就要往单链表里面加些东西，我们知道，最后一个链表的节点要指向NULL,所以我们每次创建新链表的时候，都需要将链表的节点指向NULL</p><p>第二步 构造一个空的单链表</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;构造一个空的单链表lbool initlist(linklist &amp;l)&#123;&#x2F;&#x2F;生成新的节点作为头结点，用头指针L指向头结点l &#x3D; new node;if(!l)return false;&#x2F;&#x2F;生成结点失败l-&gt;next &#x3D; NULL;&#x2F;&#x2F; 头结点指针域置空return true;&#125;</code></pre><h2 id="插法创建单链表"><a href="#插法创建单链表" class="headerlink" title="插法创建单链表"></a>插法创建单链表</h2><h3 id="头插法"><a href="#头插法" class="headerlink" title="头插法"></a>头插法</h3><p>在创建出来头节点(同时也是尾节点)之后，我们可以开始往链表里面创建新的结点了，首先先介绍一下头插法插入节点</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void createlist(linklist &amp;l)  &#x2F;&#x2F;前插法创造单链表&#123;&#x2F;&#x2F;输入n个元素，建立到头结点的单链表    int n;    cin&gt;&gt;n;    &#x2F;&#x2F;定义一个指针变量linklist s;        &#x2F;&#x2F;先建立一个带头结点的空链表l &#x3D; new node;l-&gt;next &#x3D; NULL;     while(n--)&#123;  s &#x3D; new node ;        &#x2F;&#x2F;生成新结点scin&gt;&gt;s-&gt;date;          &#x2F;&#x2F;输入元素赋值给新结点的数据域s-&gt;next &#x3D; l-&gt;next;l-&gt;next &#x3D; s;         &#x2F;&#x2F;将新结点s插入头结点之后     &#125;&#125;</code></pre><h3 id="尾插法"><a href="#尾插法" class="headerlink" title="尾插法"></a>尾插法</h3><p>我们再来介绍一下尾插法创建单链表</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;尾插法创建单链表void createlist(linklist &amp;l)&#123;   &#x2F;&#x2F;输入n个元素，建立到头结点的单链表   int n ;   linklist  s, r;   l &#x3D; new node;l-&gt;next &#x3D; NULL;  &#x2F;&#x2F;先建立一个带头结点的空链表 r &#x3D; l;           &#x2F;&#x2F;尾指针r指向头结点  （就他自己）    cout&lt;&lt;&quot;请输入元素个数 n: &quot;&lt;&lt;endl;cin&gt;&gt;n;cout&lt;&lt;&quot;请依次输入n个元素：&quot;&lt;&lt;endl;cout&lt;&lt;&quot;前插法创建单链表...&quot;&lt;&lt;endl;while(n--)&#123;  s &#x3D; new node ;       &#x2F;&#x2F;生成新结点scin&gt;&gt;s-&gt;date;          &#x2F;&#x2F;输入元素赋值给新结点的数据域    s-&gt;next &#x3D; NULL;    r-&gt;next &#x3D; s;           &#x2F;&#x2F;将新结点插s插入尾结点*r之后r &#x3D; s;                 &#x2F;&#x2F;r指向新的尾结点s     &#125;&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> c++数据结构 </category>
+          
+          <category> 链表 </category>
+          
+          <category> 单链表 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 单链表 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>字典序排序</title>
       <link href="/posts/aaaaaaan.html"/>
       <url>/posts/aaaaaaan.html</url>
