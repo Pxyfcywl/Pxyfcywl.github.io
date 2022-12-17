@@ -6,7 +6,7 @@
   <link href="https://pxyfcywl.github.io/atom.xml" rel="self"/>
   
   <link href="https://pxyfcywl.github.io/"/>
-  <updated>2022-12-17T13:53:57.777Z</updated>
+  <updated>2022-12-17T14:14:24.956Z</updated>
   <id>https://pxyfcywl.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>寒假每日五题计划</title>
-    <link href="https://pxyfcywl.github.io/posts/aaaaaaao.html"/>
-    <id>https://pxyfcywl.github.io/posts/aaaaaaao.html</id>
+    <link href="https://pxyfcywl.github.io/posts/aaaaaaap.html"/>
+    <id>https://pxyfcywl.github.io/posts/aaaaaaap.html</id>
     <published>2022-12-17T11:46:00.000Z</published>
-    <updated>2022-12-17T13:53:57.777Z</updated>
+    <updated>2022-12-17T14:14:24.956Z</updated>
     
     <content type="html"><![CDATA[<h1 id="寒假刷题计划"><a href="#寒假刷题计划" class="headerlink" title="寒假刷题计划"></a>寒假刷题计划</h1><p>计划范围</p><p>从12.17号开始，大约56天，每天去洛谷<code>oj</code>上找5道类似的题(题目难度大概在普及/提高组左右)，争取自己写出来，实在写不出来那只能就看大佬题解了嘤嘤嘤</p><p>注意算法的涉及：算法的涉及只是说可以用这种算法思路，不代表题目一定考这个</p><p>下面是题库</p><h2 id="刷题题库"><a href="#刷题题库" class="headerlink" title="刷题题库"></a>刷题题库</h2><h3 id="12-17-排序算法"><a href="#12-17-排序算法" class="headerlink" title="12.17(排序算法)"></a>12.17(排序算法)</h3><p>1.<code>P5414 [YNOI2019]</code>排序</p><p><a href="https://www.luogu.com.cn/problem/P5414">P5414 [YNOI2019] 排序 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>涉及算法: 冒泡排序法，线性<code>dp</code></p><p>2.<code>P7714 [EZEC-10]</code>排列排序</p><p><a href="https://www.luogu.com.cn/problem/P7714">P7714 「EZEC-10」排列排序 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>涉及算法：双指针</p><p>3.<code>P1908</code> 逆序对</p><p><a href="https://www.luogu.com.cn/problem/P1908">P1908 逆序对 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>涉及算法：归并排序</p><p>4.<code>P1230</code> 智力大冲浪</p><p><a href="https://www.luogu.com.cn/problem/P1230#submit">P1230 智力大冲浪 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>涉及算法：贪心 结构体排序</p><p>5.<code>P1142</code> 轰炸</p><p><a href="https://www.luogu.com.cn/problem/P1142">P1142 轰炸 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p><p>涉及算法：数学 遍历</p>]]></content>
     
