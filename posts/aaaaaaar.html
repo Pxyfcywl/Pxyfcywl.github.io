@@ -1,0 +1,482 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Trie树 | 浮云世事改, 过月此心明</title><meta name="author" content="彼岸花开"><meta name="copyright" content="彼岸花开"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据结构初见：Trie树今天，我们来了解一下Trie树这种数据结构，来看看专属于它的数据结构之美，(●ˇ∀ˇ●) Trie树的基本功能​        在之前我们可能会遇到一种题，比如说，现在我们有m个小写字母字符串，然后，我们有n个询问，对于每一个询问会告诉我们一个字符串，让我们在那m个字符串里面找到一样的，找到的话就输出yes，不然就输出no ​        一般情况下，我们会用一个二维数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Trie树">
+<meta property="og:url" content="https://pxyfcywl.github.io/posts/aaaaaaar.html">
+<meta property="og:site_name" content="浮云世事改, 过月此心明">
+<meta property="og:description" content="数据结构初见：Trie树今天，我们来了解一下Trie树这种数据结构，来看看专属于它的数据结构之美，(●ˇ∀ˇ●) Trie树的基本功能​        在之前我们可能会遇到一种题，比如说，现在我们有m个小写字母字符串，然后，我们有n个询问，对于每一个询问会告诉我们一个字符串，让我们在那m个字符串里面找到一样的，找到的话就输出yes，不然就输出no ​        一般情况下，我们会用一个二维数组">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://c.53326.com/d/file/lan20211231/gvzcw4cg15s.jpg">
+<meta property="article:published_time" content="2023-01-09T02:18:12.000Z">
+<meta property="article:modified_time" content="2023-01-09T03:23:45.997Z">
+<meta property="article:author" content="彼岸花开">
+<meta property="article:tag" content="Trie树">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://c.53326.com/d/file/lan20211231/gvzcw4cg15s.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://pxyfcywl.github.io/posts/aaaaaaar"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><meta name="msapplication-TileColor" content="#3b70fc"/><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/128.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"/><link rel="mask-icon" href="/img/siteicon/128.png" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Trie树',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-01-09 11:23:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"> <link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/css/runtime/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="浮云世事改, 过月此心明" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/th.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-home"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://c.53326.com/d/file/lan20211231/gvzcw4cg15s.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">浮云世事改, 过月此心明</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-home"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Trie树</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-09T02:18:12.000Z" title="发表于 2023-01-09 10:18:12">2023-01-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-01-09T03:23:45.997Z" title="更新于 2023-01-09 11:23:45">2023-01-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/c-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">c++数据结构</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/c-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Trie%E6%A0%91/">Trie树</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Trie树"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="数据结构初见：Trie树"><a href="#数据结构初见：Trie树" class="headerlink" title="数据结构初见：Trie树"></a>数据结构初见：<code>Trie</code>树</h1><p>今天，我们来了解一下<code>Trie</code>树这种数据结构，来看看专属于它的数据结构之美，(●ˇ∀ˇ●)</p>
+<h2 id="Trie树的基本功能"><a href="#Trie树的基本功能" class="headerlink" title="Trie树的基本功能"></a><code>Trie</code>树的基本功能</h2><p>​        在之前我们可能会遇到一种题，比如说，现在我们有<code>m</code>个<strong>小写字母</strong>字符串，然后，我们有<code>n</code>个询问，对于每一个询问会告诉我们一个字符串，让我们在那<code>m</code>个字符串里面找到一样的，找到的话就输出<code>yes</code>，不然就输出<code>no</code></p>
+<p>​        一般情况下，我们会用一个二维数组，把所有的字符串保存在二维数组里面，对于每一次询问，我们对数组进行依次遍历，直到找到符合的字符串，但是呢，这么做的话，就会很麻烦，因此，伟大的前辈们研究出来了一种可以很好解决这一类题目的方法，那就是<code>Trie</code>树这么一种数据结构</p>
+<p>​        那么，<code>Trie</code>树是怎么对于这些字符串数组进行存储的呢？欸，其实也是一个二维数组，只不过存储方式不太一样，假如说，我们现在有一下这些字符串</p>
+<pre class="line-numbers language-字符串" data-language="字符串"><code class="language-字符串">abcde
+abd
+abdc
+abc
+bcd</code></pre>
+<p>​        在存储一个字符串之前，我们先设置一个根节点，这个节点的目的就是作为存储的根，可以让我们更加方便地查询。好的，现在我们开始存储第一个字符串吧</p>
+<p>我们从根节点开始找起，看看有没有一个叫做<code>a</code>字符的子节点，如果没有的话，我们就创建一个<code>a</code>字符子节点，像这样</p>
+<pre class="line-numbers language-图" data-language="图"><code class="language-图">    根
+a</code></pre>
+<p>​        我们添加了字符<code>a</code>这个子节点，然后，我们再从<code>a</code>这个子节点开始找，看看能不能找到字符<code>b</code>，如果不能找到的话，那么就创建一个字符<code>b</code>这么个子节点，像这样</p>
+<pre class="line-numbers language-图" data-language="图"><code class="language-图">        根
+    a
+b</code></pre>
+<p>然后，像这样依次进行下去，直到把整个字符串全部存储到<code>Trie</code>树里面，像这样</p>
+<pre class="line-numbers language-图" data-language="图"><code class="language-图">                    根
+                a
+            b
+        c
+    d
+e</code></pre>
+<p>通过5次存储，最后，我们存储了所有的字符串进入<code>Trie</code>树里面</p>
+<pre class="line-numbers language-图" data-language="图"><code class="language-图">                    根
+                a        b
+            b                c
+        c       d                d
+    d               c
+e</code></pre>
+<p>在这棵树里面，就存储了5个字符串，但是，我们在查询的时候如果仅仅这么做的话，我们就不知道我们一开始存了哪些字符串，那么如果我们查询<code>abcd</code>这个字符串，在<code>Trie</code>树里面是可以找到的，但是我们一开始的字符串里面是没有<code>abcd</code>这个字符串的，所以我们对于每一次存储，都要做一个记号，说明这个地方有字符串，这样的话就可以灵活的查询了</p>
+<h3 id="原题如下："><a href="#原题如下：" class="headerlink" title="原题如下："></a>原题如下：</h3><p>——————题目来自<code>acwing</code></p>
+<p>维护一个字符串集合，支持两种操作：</p>
+<ol>
+<li><code>I x</code> 向集合中插入一个字符串 <code>x</code>；</li>
+<li><code>Q x</code> 询问一个字符串在集合中出现了多少次。</li>
+</ol>
+<p>共有 <code>N</code> 个操作，所有输入的字符串总长度不超过 105，字符串仅包含小写英文字母。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行包含整数 <code>N</code>，表示操作数。</p>
+<p>接下来 <code>N</code> 行，每行包含一个操作指令，指令为 <code>I x</code> 或 <code>Q x</code> 中的一种。</p>
+<p><strong>输出格式</strong></p>
+<p>对于每个询问指令 <code>Q x</code>，都要输出一个整数作为结果，表示 <code>x</code> 在集合中出现的次数。</p>
+<p>每个结果占一行。</p>
+<p><strong>数据范围</strong></p>
+<p>1≤<code>N</code>≤2^104</p>
+<p><strong>输入样例：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">5
+I abc
+Q abc
+Q ab
+I ab
+Q ab</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">1
+0
+1</code></pre>
+<h3 id="基本功能实现"><a href="#基本功能实现" class="headerlink" title="基本功能实现"></a>基本功能实现</h3><p>上述解释可以转变成代码：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N &#x3D; 100010;
+int son[N][26], idx, cnt[N];
+
+&#x2F;&#x2F;往Trie树里面添加字符串
+void add(char ch[])
+&#123;
+    int p &#x3D; 0;
+    for(int i &#x3D; 0;ch[i];i++) &#123;
+        int u &#x3D; ch[i] - &#39;a&#39;;
+        &#x2F;&#x2F;如果这个节点没有创建出来，就新开一个节点
+        if(!son[p][u]) son[p][u] &#x3D; ++idx;
+        &#x2F;&#x2F;找到子节点
+        p &#x3D; son[p][u];
+    &#125;
+    &#x2F;&#x2F;对应的字符串印记增加
+    cnt[p]++;
+&#125;
+
+&#x2F;&#x2F;向Trie树里面询问字符串
+int query(char ch[])
+&#123;
+    int p &#x3D; 0;
+    for(int i &#x3D; 0;ch[i];i++) &#123;
+        int u &#x3D; ch[i] - &#39;a&#39;;
+        &#x2F;&#x2F;如果有一个节点是没有的，说明字符串不存在
+        if(!son[p][u]) return 0;
+        p &#x3D; son[p][u];
+    &#125;
+    &#x2F;&#x2F;找到了这么一个字符串，但是字符串可能不存在
+    return cnt[p];
+&#125;
+
+int main()
+&#123;
+    int n;
+    cin &gt;&gt; n;
+    for(int i &#x3D; 0;i &lt; n;i++) &#123;
+        char ch[2], s[N];
+        scanf(&quot;%s%s&quot;,ch, s);
+        if(ch[0] &#x3D;&#x3D; &#39;I&#39;) add(s);
+        else cout &lt;&lt; query(s) &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;</code></pre>
+<p>如此一来，我们就可以自由地查询字符串了</p>
+<p>现在，我们来一道小题来练练手吧（</p>
+<h2 id="练习题目"><a href="#练习题目" class="headerlink" title="练习题目"></a>练习题目</h2><p>在给定的 <code>N</code> 个整数 <code>A1</code>，<code>A2</code>……<code>AN</code> 中选出两个进行 <code>xor</code>（异或）运算，得到的结果最大是多少？</p>
+<p><strong>输入格式</strong></p>
+<p>第一行输入一个整数 <code>N</code>。</p>
+<p>第二行输入 <code>N</code> 个整数 <code>A1</code>～<code>AN</code>。</p>
+<p><strong>输出格式</strong></p>
+<p>输出一个整数表示答案。</p>
+<p><strong>数据范围</strong></p>
+<p>1≤<code>N</code>≤10^5,<br>0≤<code>Ai</code>&lt;2^31</p>
+<p><strong>输入样例：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">3
+1 2 3</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">3</code></pre>
+<p>——————————————————————<strong>分割线</strong>——————————————————————</p>
+<p>好的，初看此题，大家的想法应该是先创建一个二维数字数组，对于每一个数都存储进去，然后再进行<code>for</code>循环嵌套<code>for</code>循环依次计算每一个数的异或值，最后再得出最大答案</p>
+<p>没错，这确实可以计算出来，但是对于复杂度来说较高，因为计算量会大于10^8，而<code>c++</code>一秒内只能计算10^7 —- 10^8的数值，所以我们会超时，因此，我们得考虑其它的算法，那么有没有其它的方法呢？</p>
+<p>肯定是有的，不然怎么会出现在这里，对于每一个数，我们可以依次存储到<code>Trie</code>树里面，但是怎么存呢，这就需要很巧妙的方法了</p>
+<h4 id="算法讲解"><a href="#算法讲解" class="headerlink" title="算法讲解"></a>算法讲解</h4><p>首先，我们要知道怎么计算两个数的异或值，对于5和3两个数，</p>
+<pre class="line-numbers language-二进制计算" data-language="二进制计算"><code class="language-二进制计算">5的二进制  0000 0101
+3的二进制  0000 0011
+异或值为7  0000	0111</code></pre>
+<p>没错，我们计算二进制的时候是通过二进制计算的，所以说，我们可以把每一个数都转化成二进制数，依次保存到<code>Trie</code>树里面，这样一来，我们就可以有选择的找每一个数对应的最大异或数，再求出每一个数的最大异或值，这样的话就会避免很多难题，</p>
+<p>那么，问题又来了，我们该怎么查找与该数字相匹配的指定数字的最大异或数呢？</p>
+<p>我们来看看5，在2^8里面，5可以和谁组成最大异或数？</p>
+<pre class="line-numbers language-二进制计算" data-language="二进制计算"><code class="language-二进制计算">5的二进制  0000 0101
+n的二进制  1111 1010
+</code></pre>
+<p>很明显，5和n可以组成最大异或数，也就是从高位往低位进行寻找，5的最高位是0，那么我们就要找最高位是1的，这样依次查询下去，如果没有对应的相反的值，那就只能找一样的，但是依然可以保证每一个数都找到最大异或数，最后依次比较</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+const int N &#x3D; 100010, M &#x3D; 31*N;
+int a[N], idx, son[M][2];
+
+&#x2F;&#x2F;把每一个数都添加到Trie数里面
+void add(int x)
+&#123;
+    int p &#x3D; 0;
+    &#x2F;&#x2F;从最高位开始存储
+    for(int i &#x3D; 30;i &gt;&#x3D; 0;i--) &#123;
+        &#x2F;&#x2F;通过位运算求出这个数的第i位的二进制数
+        int u &#x3D; x&gt;&gt;i&amp;1;
+        &#x2F;&#x2F;开辟节点
+        if(!son[p][u]) son[p][u] &#x3D; ++idx;
+        p &#x3D; son[p][u];
+    &#125;
+&#125;</code></pre>
+<p>寻找每一个数的可以组成最大异或数的数</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int query(int x)
+&#123;
+    int p &#x3D; 0;
+    int ans &#x3D; 0;
+    for(int i &#x3D; 30;i &gt;&#x3D; 0;i--) &#123;
+        int u &#x3D; x&gt;&gt;i&amp;1;
+        &#x2F;&#x2F;找得到相反的
+        if(son[p][!u]) &#123;
+            p &#x3D; son[p][!u];
+            &#x2F;&#x2F;二进制求和
+            ans &#x3D; ans * 2 + !u;
+        &#125;
+        &#x2F;&#x2F;找不到相反的，就找个次的
+        else &#123;
+            p &#x3D; son[p][u];
+            &#x2F;&#x2F;二进制求和
+            ans &#x3D; ans * 2 + u;
+        &#125;
+    &#125;
+    &#x2F;&#x2F;返回
+    return ans;
+&#125;</code></pre>
+<p>输入输出代码：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int main()
+&#123;
+    int n;
+    cin &gt;&gt; n;
+    int sum &#x3D; 0;
+    for(int i &#x3D; 0;i &lt; n;i++) &#123;
+        cin &gt;&gt; a[i];
+        add(a[i]);
+        int ans &#x3D; query(a[i]);
+        sum &#x3D; max(sum, ans^a[i]);
+    &#125;
+    cout &lt;&lt; sum &lt;&lt; endl;
+    return 0;
+&#125;</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上就是关于<code>Trie</code>树的基础内容了，相信通过这个知识点的学习，可以更好的了解数据结构的奥妙之美，ヽ(✿ﾟ▽ﾟ)ノ</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://pxyfcywl.github.io">彼岸花开</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://pxyfcywl.github.io/posts/aaaaaaar.html">https://pxyfcywl.github.io/posts/aaaaaaar.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://pxyfcywl.github.io" target="_blank">浮云世事改, 过月此心明</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Trie%E6%A0%91/">Trie树</a></div><div class="post_share"><div class="social-share" data-image="https://c.53326.com/d/file/lan20211231/gvzcw4cg15s.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/aaaaaaaq.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://c.53326.com/d/file/lan20221010/dymo5mrsrsr.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">并查集</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/th.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">彼岸花开</div><div class="author-info__description">欢迎！高洁而真诚的灵魂</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Pxyfcywl"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">日拱一卒无有尽, 功不唐捐终入海</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%9D%E8%A7%81%EF%BC%9ATrie%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">数据结构初见：Trie树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Trie%E6%A0%91%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="toc-number">1.1.</span> <span class="toc-text">Trie树的基本功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E9%A2%98%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">原题如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">基本功能实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE"><span class="toc-number">1.2.</span> <span class="toc-text">练习题目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">算法讲解</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/aaaaaaar.html" title="Trie树"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://c.53326.com/d/file/lan20211231/gvzcw4cg15s.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Trie树"/></a><div class="content"><a class="title" href="/posts/aaaaaaar.html" title="Trie树">Trie树</a><time datetime="2023-01-09T02:18:12.000Z" title="发表于 2023-01-09 10:18:12">2023-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/aaaaaaaq.html" title="并查集"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://c.53326.com/d/file/lan20221010/dymo5mrsrsr.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="并查集"/></a><div class="content"><a class="title" href="/posts/aaaaaaaq.html" title="并查集">并查集</a><time datetime="2023-01-08T10:26:43.000Z" title="发表于 2023-01-08 18:26:43">2023-01-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/aaaaaaap.html" title="寒假每日五题计划"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pica.zhimg.com/v2-69036cf81027b317d73020c41d84135a_r.jpg?source=1940ef5c" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="寒假每日五题计划"/></a><div class="content"><a class="title" href="/posts/aaaaaaap.html" title="寒假每日五题计划">寒假每日五题计划</a><time datetime="2022-12-17T11:46:00.000Z" title="发表于 2022-12-17 19:46:00">2022-12-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/aaaaaaao.html" title="单链表"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://c.53326.com/d/file/lan20221010/lrf3kwo5fv5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="单链表"/></a><div class="content"><a class="title" href="/posts/aaaaaaao.html" title="单链表">单链表</a><time datetime="2022-12-15T02:51:34.000Z" title="发表于 2022-12-15 10:51:34">2022-12-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/aaaaaaan.html" title="字典序排序"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/ex/wallhaven-ex7x6r.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="字典序排序"/></a><div class="content"><a class="title" href="/posts/aaaaaaan.html" title="字典序排序">字典序排序</a><time datetime="2022-12-13T08:06:34.000Z" title="发表于 2022-12-13 16:06:34">2022-12-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 彼岸花开</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script><canvas id="universe"></canvas> <script defer src="/js/universe.js"></script> <div class="aplayer no-destroy" data-id="7762895580" data-server="netease" data-type="playlist" data-fixed="true" data-order="list" data-fixed="true" data-preload="auto" data-listFolded="false" data-hideLrc="true" data-autoplay="false" data-mutex="true" ></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><div class="app-refresh" id="app-refresh" style="position: fixed;top: -2.2rem;left: 0;right: 0;z-index: 99999;padding: 0 1rem;font-size: 15px;height: 2.2rem;transition: all 0.3s ease;"><div class="app-refresh-wrap" style=" display: flex;color: #fff;height: 100%;align-items: center;justify-content: center;"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color: #fff;text-decoration: underline;cursor: pointer;">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
+if (navigator.serviceWorker.controller) {
+navigator.serviceWorker.addEventListener('controllerchange', function() {
+showNotification()
+})
+}
+window.addEventListener('load', function() {
+navigator.serviceWorker.register('/sw.js')
+})
+}
+function showNotification() {
+if (GLOBAL_CONFIG.Snackbar) {
+var snackbarBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+GLOBAL_CONFIG.Snackbar.bgLight :
+GLOBAL_CONFIG.Snackbar.bgDark
+var snackbarPos = GLOBAL_CONFIG.Snackbar.position
+Snackbar.show({
+text: '✨ 有新文章啦！ 👉',
+backgroundColor: snackbarBg,
+duration: 500000,
+pos: snackbarPos,
+actionText: '🍗点击食用🍔',
+actionTextColor: '#fff',
+onActionClick: function(e) {
+location.reload()
+},
+})
+} else {
+var showBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+'#3b70fc' :
+'#1f1f1f'
+var cssText = `top: 0; background: ${showBg};`
+document.getElementById('app-refresh').style.cssText = cssText
+}
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover1.webp);"> <a class="categoryBar-list-link" href="categories/c-数据结构/">c++数据结构</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">算法ing</span></li><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover2.webp);"> <a class="categoryBar-list-link" href="categories/c-算法/">c++算法</a><span class="categoryBar-list-count">8</span><span class="categoryBar-list-descr">漫漫算法路</span></li><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover3.webp);"> <a class="categoryBar-list-link" href="categories/c-数据结构/Trie树/">Trie树</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr">算法我来啦</span></li><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover4.webp);"> <a class="categoryBar-list-link" href="categories/测试的/">测试的</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover5.webp);"> <a class="categoryBar-list-link" href="categories/中值定理/">中值定理</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover6.webp);"> <a class="categoryBar-list-link" href="categories/c-算法/最短路问题/">最短路问题</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/dfs深度优先搜索/">dfs深度优先搜索</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-数据结构/链表/">链表</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-中的stl算法/">c++中的stl算法</a><span class="categoryBar-list-count">2</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/字典序排序/">字典序排序</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/寒暑假计划和期度总结/">寒暑假计划和期度总结</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/刷题题库/">刷题题库</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-数据结构/并查集/">并查集</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/排序/">排序</a><span class="categoryBar-list-count">2</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-数据结构/链表/单链表/">单链表</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/bfs宽度优先搜索/">bfs宽度优先搜索</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-数学知识/">c++数学知识</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime/runtime.min.js"></script><script async src="/js/ali_font.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
