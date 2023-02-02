@@ -1,0 +1,389 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>小沙的赌气 | 浮云世事改, 过月此心明</title><meta name="author" content="彼岸花开"><meta name="copyright" content="彼岸花开"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="小沙の赌气前言：你干嘛，哈哈，哎呦，赌，赌什么嘛 题目来源今天这道题来自于2023牛客寒假算法集训营，链接如下： D-小沙の赌气_2023牛客寒假算法基础集训营5 (nowcoder.com) 下面给出该题的题面 原题题面小沙和小雅在一起打游戏，因为赌气，他们想要比比看谁打通的关卡数更多，在游戏过程中，他们两个人都可以获得一些奇怪的道具来帮助他们通关，假设小沙和小雅都从第一关开始，他们必须一关一关">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小沙的赌气">
+<meta property="og:url" content="https://pxyfcywl.github.io/posts/aaaaaaay.html">
+<meta property="og:site_name" content="浮云世事改, 过月此心明">
+<meta property="og:description" content="小沙の赌气前言：你干嘛，哈哈，哎呦，赌，赌什么嘛 题目来源今天这道题来自于2023牛客寒假算法集训营，链接如下： D-小沙の赌气_2023牛客寒假算法基础集训营5 (nowcoder.com) 下面给出该题的题面 原题题面小沙和小雅在一起打游戏，因为赌气，他们想要比比看谁打通的关卡数更多，在游戏过程中，他们两个人都可以获得一些奇怪的道具来帮助他们通关，假设小沙和小雅都从第一关开始，他们必须一关一关">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://w.wallhaven.cc/full/wq/wallhaven-wqve97.png">
+<meta property="article:published_time" content="2023-02-02T03:46:31.000Z">
+<meta property="article:modified_time" content="2023-02-02T04:22:32.793Z">
+<meta property="article:author" content="彼岸花开">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="优先队列">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://w.wallhaven.cc/full/wq/wallhaven-wqve97.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://pxyfcywl.github.io/posts/aaaaaaay"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><meta name="msapplication-TileColor" content="#3b70fc"/><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/128.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"/><link rel="mask-icon" href="/img/siteicon/128.png" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '小沙的赌气',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-02 12:22:32'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/universe.css"> <link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-blog@2.0.4/css/runtime/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="浮云世事改, 过月此心明" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/th.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-home"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://w.wallhaven.cc/full/wq/wallhaven-wqve97.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">浮云世事改, 过月此心明</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/bangumis/"><i class="fa-fw fas fa-home"></i><span> 追番</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">小沙的赌气</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-02T03:46:31.000Z" title="发表于 2023-02-02 11:46:31">2023-02-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-02T04:22:32.793Z" title="更新于 2023-02-02 12:22:32">2023-02-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/c-%E7%AE%97%E6%B3%95/">c++算法</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/c-%E7%AE%97%E6%B3%95/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">优先队列</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/c-%E7%AE%97%E6%B3%95/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/%E7%A6%BB%E6%95%A3%E5%8C%96/">离散化</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="小沙的赌气"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="小沙の赌气"><a href="#小沙の赌气" class="headerlink" title="小沙の赌气"></a>小沙の赌气</h1><p><strong>前言：你干嘛，哈哈，哎呦，赌，赌什么嘛</strong></p>
+<h2 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h2><p>今天这道题来自于2023牛客寒假算法集训营，链接如下：</p>
+<p><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/46813/D">D-小沙の赌气_2023牛客寒假算法基础集训营5 (nowcoder.com)</a></p>
+<p>下面给出该题的题面</p>
+<h3 id="原题题面"><a href="#原题题面" class="headerlink" title="原题题面"></a>原题题面</h3><p>小沙和小雅在一起打游戏，因为赌气，他们想要比比看谁打通的关卡数更多，在游戏过程中，他们两个人都可以获得一些奇怪的道具来帮助他们通关，假设小沙和小雅都从第一关开始，他们必须一关一关通，只有通过了第 <code>x</code> 关，第 <code>x+1</code> 关才会解锁。每次同时卡关他们各自会获得了一个道具，第 <code>i</code>个道具可以使他们通过 <code>[li ri]</code>之间的每一关，在获得每个道具之后，小沙想询问你目前已有的道具游玩下去，谁会领先，领先多少。</p>
+<p><strong>输入格式</strong></p>
+<p>第一行输入一个数 <code>n</code> ，代表 <code>n</code> 个发放道具，<code>1 ≤ n≤  10^5</code>。</p>
+<p>接下来 <code>n</code> 行，每行输入两个整数 <code>1≤ l ≤ r ≤  10^9</code> ，代表小沙获得的游戏道具能帮助他通过哪些关卡。</p>
+<p>接下来 <code>n</code> 行，每行输入两个整数 <code>1≤ l ≤r ≤  10^9</code>，代表小雅获得的游戏道具能帮助她通过哪些关卡。</p>
+<p><strong>输出格式</strong></p>
+<p>对于每一次获得道具后，目前的领先状况。</p>
+<p>每次询问共输出两行</p>
+<p>第一行输出一行字符串代表答案。</p>
+<p>如果小沙通过的更多输出”<code>sa_win!</code>“(不包含引号);</p>
+<p>如果小雅通过的更多输出”<code>ya_win!</code>“(不包含引号);</p>
+<p>如果通过的一样多输出”<code>win_win!</code>“(不包含引号)。</p>
+<p>第二行输出一个整数代表多通过的关卡数。</p>
+<p><strong>输出样例：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">3
+1 3
+4 7
+9 10
+1 5
+3 8
+7 9</code></pre>
+<p><strong>输出样例：</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">ya_win!
+2
+ya_win!
+1
+ya_win!
+2</code></pre>
+<h3 id="题目解释"><a href="#题目解释" class="headerlink" title="题目解释"></a>题目解释</h3><p>这道题实际上好像是八仙过海？(出题人说，很多人的理解和解法都不同)，通过一系列的思考，这里主要给出的是我个人所理解的一种解题办法</p>
+<p><strong>朴素思路</strong></p>
+<p>首先，我们要清楚当小沙或是小雅得到了道具之后，这个道具是可以一直使用的，这也就意味着对于一开始不可以使用的道具我们是要保存下来的，这也就加大了这道题的难度，如此一来我就想到了第一种解法，把所有的道具先开数组存起来，然后依次遍历，对于可以使用的道具，我们就更新小沙或是小雅的最大通光量，这种思路固然正确，但是在时间上的复杂度就很高了，过不了的</p>
+<p><strong>优化</strong></p>
+<p>为此，我们要对这种朴素思路进行优化，最后我想到了用队列来写，只要这个道具没有用了或者说我用过了，那么我就把这个道具给从队列移出来，这种方法是可行的</p>
+<p><strong>更新最大通关数</strong></p>
+<p>现在有了一个问题，我们该如何知道小沙或是小雅在目前所有道具的使用下可以到第几关呢？我们可以开两个变量来保存他们的通关数，只要满足他们<strong>目前的通关数 &gt;= 该道具的最小值 - 1</strong>，那么我们就可以使用这个道具，为什么是减一？很简单，假如现在小沙过到了第0关，第一个道具可以让小沙过1到3关，那么小沙的最大通关量就刷新成3了，但是如果第二个道具可以让小沙通过5到<strong>114514</strong>关，但是小沙没有通过第4关，那么第二个道具对于小沙来说就没有用了，<code>hh</code></p>
+<h2 id="ac代码"><a href="#ac代码" class="headerlink" title="ac代码"></a><code>ac</code>代码</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+const int N &#x3D; 100010;
+int n;
+&#x2F;&#x2F;开的保存数组
+int l1[N], l2[N], r1[N], r2[N];
+&#x2F;&#x2F;结构体内部排序(从小到大排)
+struct edge&#123;
+    int l, r;
+    bool operator &lt; (const edge &amp;b) const &#123;
+        return l &#x3D;&#x3D; b.l ? b.r &lt; r : b.l &lt; l;
+    &#125;
+&#125;;
+
+int main()
+&#123;
+    cin &gt;&gt; n;
+    &#x2F;&#x2F;存储
+    for(int i &#x3D; 0;i &lt; n;i++) &#123;
+        cin &gt;&gt; l1[i] &gt;&gt; r1[i];
+    &#125;
+    for(int i &#x3D; 0;i &lt; n;i++) &#123;
+        cin &gt;&gt; l2[i] &gt;&gt; r2[i];
+    &#125;
+    &#x2F;&#x2F;开两个优先队列
+    priority_queue&lt;edge&gt; a, b;
+    &#x2F;&#x2F;记录目前两个人所到达的最大通关数
+    int idx1 &#x3D; 0, idx2 &#x3D; 0;
+    for(int i &#x3D; 0;i &lt; n;i++) &#123;
+        &#x2F;&#x2F;加入队列
+        a.push(&#123;l1[i], r1[i]&#125;);
+        b.push(&#123;l2[i], r2[i]&#125;);
+        &#x2F;&#x2F;队列不为空
+        while(a.size()) &#123;
+            auto t &#x3D; a.top();
+            &#x2F;&#x2F;满足更新条件
+            if(t.l - idx1 &lt;&#x3D; 1) &#123;
+                &#x2F;&#x2F;取最大值
+                idx1 &#x3D; max(idx1, t.r);
+                a.pop();
+            &#125;
+            else break;
+        &#125;
+        &#x2F;&#x2F;同上
+        while(b.size()) &#123;
+            auto t &#x3D; b.top();
+            if(t.l - idx2 &lt;&#x3D; 1) &#123;
+                idx2 &#x3D; max(idx2, t.r);
+                b.pop();
+            &#125;
+            else break;
+        &#125;
+        &#x2F;&#x2F;输出答案
+        if(idx1 &gt; idx2) cout &lt;&lt; &quot;sa_win!&quot; &lt;&lt; endl;
+        else if(idx1 &#x3D;&#x3D; idx2) cout &lt;&lt; &quot;win_win!&quot; &lt;&lt; endl;
+        else cout &lt;&lt; &quot;ya_win!&quot; &lt;&lt; endl;
+        cout &lt;&lt; abs(idx1 - idx2) &lt;&lt; endl;
+    &#125;
+    return 0;
+&#125;</code></pre>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这一把一小时写出来了所有简单题，本来想着可以突破一波的，结果这道题还有另外一道中等题把我卡住了，后面3个多小时就挂在这两题了……</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://pxyfcywl.github.io">彼岸花开</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://pxyfcywl.github.io/posts/aaaaaaay.html">https://pxyfcywl.github.io/posts/aaaaaaay.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://pxyfcywl.github.io" target="_blank">浮云世事改, 过月此心明</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%A2%98%E8%A7%A3/">题解</a><a class="post-meta__tags" href="/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">优先队列</a></div><div class="post_share"><div class="social-share" data-image="https://w.wallhaven.cc/full/wq/wallhaven-wqve97.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/aaaaaaax.html"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://c.53326.com/d/file/lan20221010/yd1qmigydt0.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">页码问题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/aaaaaaau.html" title="Tokitsukaze and a+b&#x3D;n"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.wallspic.com/crops/9/2/8/9/6/169829/169829-dong_hua_feng_jing-yi_shu-wu_tai_bu_jing-qi_fen-chuang_kou-3840x2160.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-20</div><div class="title">Tokitsukaze and a+b&#x3D;n</div></div></a></div><div><a href="/posts/aaaaaaav.html" title="指针"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.wallspic.com/previews/8/0/2/1/7/171208/171208-mitsuha_miyamizu-ta_ji_ju-qi_fen-guang-tian_wen_xue_dui_xiang-x750.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-22</div><div class="title">指针</div></div></a></div><div><a href="/posts/aaaaaaat.html" title="雪花雪花雪花"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.wallspic.com/crops/1/7/0/0/7/170071/170071-jeanne_d_arc_he_saber-jian-tao-kong_jian-kui_jia-3840x2160.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-16</div><div class="title">雪花雪花雪花</div></div></a></div><div><a href="/posts/aaaaaaah.html" title="堆"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://c.53326.com/d/file/lan20211231/5uogh2ft5zt.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-22</div><div class="title">堆</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/th.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">彼岸花开</div><div class="author-info__description">欢迎！高洁而真诚的灵魂</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Pxyfcywl"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">日拱一卒无有尽, 功不唐捐终入海</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E6%B2%99%E3%81%AE%E8%B5%8C%E6%B0%94"><span class="toc-number">1.</span> <span class="toc-text">小沙の赌气</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%9D%A5%E6%BA%90"><span class="toc-number">1.1.</span> <span class="toc-text">题目来源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E9%A2%98%E9%A2%98%E9%9D%A2"><span class="toc-number">1.1.1.</span> <span class="toc-text">原题题面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E9%87%8A"><span class="toc-number">1.1.2.</span> <span class="toc-text">题目解释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ac%E4%BB%A3%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">ac代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">1.3.</span> <span class="toc-text">写在最后</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/aaaaaaay.html" title="小沙的赌气"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://w.wallhaven.cc/full/wq/wallhaven-wqve97.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小沙的赌气"/></a><div class="content"><a class="title" href="/posts/aaaaaaay.html" title="小沙的赌气">小沙的赌气</a><time datetime="2023-02-02T03:46:31.000Z" title="发表于 2023-02-02 11:46:31">2023-02-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/aaaaaaax.html" title="页码问题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://c.53326.com/d/file/lan20221010/yd1qmigydt0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="页码问题"/></a><div class="content"><a class="title" href="/posts/aaaaaaax.html" title="页码问题">页码问题</a><time datetime="2023-01-28T11:07:26.000Z" title="发表于 2023-01-28 19:07:26">2023-01-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/aaaaaaaw.html" title="多重背包问题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img3.wallspic.com/previews/3/1/0/1/7/171013/171013-guang-ren_men_zai_zi_ran_jie-shou_shi-yi_shu-xiang_hu_zuo_yong-x750.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多重背包问题"/></a><div class="content"><a class="title" href="/posts/aaaaaaaw.html" title="多重背包问题">多重背包问题</a><time datetime="2023-01-24T04:09:08.000Z" title="发表于 2023-01-24 12:09:08">2023-01-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/aaaaaaav.html" title="指针"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.wallspic.com/previews/8/0/2/1/7/171208/171208-mitsuha_miyamizu-ta_ji_ju-qi_fen-guang-tian_wen_xue_dui_xiang-x750.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="指针"/></a><div class="content"><a class="title" href="/posts/aaaaaaav.html" title="指针">指针</a><time datetime="2023-01-22T02:03:15.000Z" title="发表于 2023-01-22 10:03:15">2023-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/aaaaaaau.html" title="Tokitsukaze and a+b=n"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img1.wallspic.com/crops/9/2/8/9/6/169829/169829-dong_hua_feng_jing-yi_shu-wu_tai_bu_jing-qi_fen-chuang_kou-3840x2160.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Tokitsukaze and a+b=n"/></a><div class="content"><a class="title" href="/posts/aaaaaaau.html" title="Tokitsukaze and a+b=n">Tokitsukaze and a+b=n</a><time datetime="2023-01-20T02:52:48.000Z" title="发表于 2023-01-20 10:52:48">2023-01-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 彼岸花开</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script><canvas id="universe"></canvas> <script defer src="/js/universe.js"></script> <div class="aplayer no-destroy" data-id="7762895580" data-server="netease" data-type="playlist" data-fixed="true" data-order="list" data-fixed="true" data-preload="auto" data-listFolded="false" data-hideLrc="true" data-autoplay="false" data-mutex="true" ></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><div class="app-refresh" id="app-refresh" style="position: fixed;top: -2.2rem;left: 0;right: 0;z-index: 99999;padding: 0 1rem;font-size: 15px;height: 2.2rem;transition: all 0.3s ease;"><div class="app-refresh-wrap" style=" display: flex;color: #fff;height: 100%;align-items: center;justify-content: center;"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color: #fff;text-decoration: underline;cursor: pointer;">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
+if (navigator.serviceWorker.controller) {
+navigator.serviceWorker.addEventListener('controllerchange', function() {
+showNotification()
+})
+}
+window.addEventListener('load', function() {
+navigator.serviceWorker.register('/sw.js')
+})
+}
+function showNotification() {
+if (GLOBAL_CONFIG.Snackbar) {
+var snackbarBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+GLOBAL_CONFIG.Snackbar.bgLight :
+GLOBAL_CONFIG.Snackbar.bgDark
+var snackbarPos = GLOBAL_CONFIG.Snackbar.position
+Snackbar.show({
+text: '✨ 有新文章啦！ 👉',
+backgroundColor: snackbarBg,
+duration: 500000,
+pos: snackbarPos,
+actionText: '🍗点击食用🍔',
+actionTextColor: '#fff',
+onActionClick: function(e) {
+location.reload()
+},
+})
+} else {
+var showBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+'#3b70fc' :
+'#1f1f1f'
+var cssText = `top: 0; background: ${showBg};`
+document.getElementById('app-refresh').style.cssText = cssText
+}
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+    function butterfly_categories_card_injector_config(){
+      var parent_div_git = document.getElementById('recent-posts');
+      var item_html = '<style>li.categoryBar-list-item{width:32.3%;}.categoryBar-list{max-height: 190px;overflow:auto;}.categoryBar-list::-webkit-scrollbar{width:0!important}@media screen and (max-width: 650px){.categoryBar-list{max-height: 160px;}}</style><div class="recent-post-item" style="height:auto;width:100%;padding:0px;"><div id="categoryBar"><ul class="categoryBar-list"><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover1.webp);"> <a class="categoryBar-list-link" href="categories/c-算法/">c++算法</a><span class="categoryBar-list-count">14</span><span class="categoryBar-list-descr">算法ing</span></li><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover2.webp);"> <a class="categoryBar-list-link" href="categories/c-数据结构/">c++数据结构</a><span class="categoryBar-list-count">4</span><span class="categoryBar-list-descr">漫漫算法路</span></li><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover3.webp);"> <a class="categoryBar-list-link" href="categories/c-算法/最短路问题/">最短路问题</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr">算法我来啦</span></li><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover4.webp);"> <a class="categoryBar-list-link" href="categories/c-算法/差分/">差分</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover5.webp);"> <a class="categoryBar-list-link" href="categories/测试的/">测试的</a><span class="categoryBar-list-count">3</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover6.webp);"> <a class="categoryBar-list-link" href="categories/c-数据结构/KMP/">KMP</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/中值定理/">中值定理</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-数据结构/Trie树/">Trie树</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-数据结构/链表/">链表</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/dfs深度优先搜索/">dfs深度优先搜索</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-中的stl算法/">c++中的stl算法</a><span class="categoryBar-list-count">2</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/acm/">acm</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/多重背包/">多重背包</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/字典序排序/">字典序排序</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/优先队列/">优先队列</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/排序/">排序</a><span class="categoryBar-list-count">2</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-数据结构/并查集/">并查集</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/刷题题库/">刷题题库</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-数据结构/链表/单链表/">单链表</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/优先队列/离散化/">离散化</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/动态规划/">动态规划</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/bfs宽度优先搜索/">bfs宽度优先搜索</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/数位统计/">数位统计</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-数学知识/">c++数学知识</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li><li class="categoryBar-list-item" style="background:url(undefined);"> <a class="categoryBar-list-link" href="categories/c-算法/哈希表/">哈希表</a><span class="categoryBar-list-count">1</span><span class="categoryBar-list-descr"></span></li></ul></div></div>';
+      console.log('已挂载butterfly_categories_card')
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+      }
+    if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    butterfly_categories_card_injector_config()
+    }
+  </script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime/runtime.min.js"></script><script async src="/js/ali_font.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html>
